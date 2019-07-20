@@ -26,6 +26,45 @@ def selectionSort(array):
             array[i], array[minIndex] = array[minIndex], array[i]
 
 
+
+#using recursion part 1
+def selectionSortRecur(array, i = 0):
+    if i > len(array):
+        return
+    minIndex = i
+    for j in range(i+1, len(array)):
+        if array[j] < array[minIndex]:
+            minIndex = j
+    if minIndex != i:
+        array[i], array[minIndex] = array[minIndex], array[i]
+    selectionSortRecur(array, i+1)
+
+
+
+
+# Using Full Recursion
+def selectionSortRecur2(array, i = 0):
+    if i > len(array):
+        return
+    minIndex = secondStep(array, i, i)
+    if minIndex != i:
+        array[i], array[minIndex] = array[minIndex], array[i]
+    selectionSortRecur2(array, i+1)
+
+def secondStep(array, j, minIndex):
+    if j >= len(array):
+        return minIndex
+    elif array[j] < array[minIndex]:
+        minIndex = j
+
+    return secondStep(array, j+1, minIndex)
+
+
+
+
+
+
 a = [1, 3, 4, 6, 0, 8, 7, 4, 4, 5, 6,7]
-selectionSort(a)
+# selectionSort(a)
+selectionSortRecur2(a)
 print(a)
