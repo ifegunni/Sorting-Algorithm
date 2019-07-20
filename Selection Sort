@@ -1,0 +1,31 @@
+#:: in selection sort we are consatntly swaping the location of variables to into their rightful position
+#:: time complexity i
+def selectionSort(array):
+  #:: calculating the lenght of the array
+    for i in range(0, len(array)-1):
+        minIndex = i  #:: variable minIndex is used to store the current min index for easy swap
+        for j in range(i+1, len(array)):
+            if array[j] < array[minIndex]:   #:: compare current minimum value and the current value
+                minIndex = j  #:: change minimum value
+            #:: implement swap
+        temp = array[i]
+        array[i] = array[minIndex]
+        array[minIndex] = temp
+        #:: OR
+        # if minIndex != i:
+            # array[i], array[minIndex] = array[minIndex], array[i]
+
+
+def selectionSort(array):
+    for i in range(0, len(array)-1):
+        minIndex = i
+        for j in range(i+1, len(array)):
+            if array[j] < array[minIndex]:
+                minIndex = j
+        if minIndex != i:
+            array[i], array[minIndex] = array[minIndex], array[i]
+
+
+a = [1, 3, 4, 6, 0, 8, 7, 4, 4, 5, 6,7]
+selectionSort(a)
+print(a)
